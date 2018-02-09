@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
+    //Credit card payment class, implements Ipayment
     class Credit : IPayment
     {
         string CardNumber;

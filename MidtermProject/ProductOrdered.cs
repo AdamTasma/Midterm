@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
+
+    //products that are ordered by the customer, includes product name and info, and quantity.
     class ProductOrdered : Product
     {
         int Quantity;

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
+    //Cart class, holds items that are selected by customer, and displays them back
+    //then the customer will have the option to continue shopping or check out and pay.
     class Invoice
     {
         double SaleTax = 0.06;

@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
-    //check payment class, implements Ipayment
-    class Check : IPayment
+    //class for making objects that are needed
+    class Factory
     {
-        string checkNumber;
-        public bool MakePayment(double grandTotal)
+        public Invoice CreateInvoice()
         {
-            return true;
-
+            return new Invoice();
         }
     }
 }

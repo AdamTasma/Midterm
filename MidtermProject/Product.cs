@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
+    //main product class. products that are available to purchase, which are imported from a txt file
     class Product
     {
         string Name;
