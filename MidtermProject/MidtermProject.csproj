@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cash.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="Credit.cs" />
+    <Compile Include="Invoice.cs" />
+    <Compile Include="IPayment.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductOrdered.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
