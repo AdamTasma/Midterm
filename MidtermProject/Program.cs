@@ -9,23 +9,14 @@ namespace MidtermProject
     //main
 
     /*
-     TODO:  -view / customer screen
-                -> menu for user to choose from 
-            -controller class that handles the interpreting from customer view to the data.
-            -model class needs to read a txt file and create object from it and store them in a List<Product>
-            -model class needs to write out new products that are available. (extended)
-            -need a receipt that prints to the screen once an order is paid for. to include
-                               -> name of store
-                 -item -> price -> quantity -> line total
-                                            -> subtotal
-                                            -> tax
-                                            ****************
-                                            -> grand total
-                                            -> tender type
-                                            -> amount tendered
-                                            -> change given
-                               -> thank you message
-            -input validation on info entered by customer
+     TODO:  -comments
+            -add line total after choosing qty
+            -input validation /try catch if needed
+            -****go over each piece so everyone knows everything //can use comments to help with program flow
+            -presentation stuff
+            -            -add file output for extended challenge??
+
+            
             
 
      */
