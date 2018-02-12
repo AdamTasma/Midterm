@@ -17,18 +17,21 @@ namespace MidtermProject
             Console.WriteLine("2: View Cart");
             Console.WriteLine("3: Checkout");
             Console.WriteLine("4: Exit Store");
-            GetInput();
+            int resp=   GetInput();
+            switch (resp)
+            {
 
+            }
         }
 
         //prompt the user for input, then pass the input to validate to make sure its a valid integer choice.
         //then pass to an if statement or switch statement to handle the choice accordingly.
-        public static void GetInput()
+        public static int GetInput()
         {
             Console.Write("\nWhat would you like to do: ");
             string input = Console.ReadLine();
             int valid = Validate(input);
-
+            return valid;
         }
 
         //move validate to another class? logic doesn't really belong in view...

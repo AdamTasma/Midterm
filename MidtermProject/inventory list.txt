@@ -7,3 +7,5 @@ FPS
 the king of multiplayer first person shooters
 59.99
 
+name; category; description; price;
+name; categroy; description; price;

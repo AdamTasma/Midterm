@@ -33,6 +33,7 @@ namespace MidtermProject
     {
         static void Main(string[] args)
         {
+            MainMenu.showMenu();
             Console.WriteLine("Adam is the best");
         }
     }
