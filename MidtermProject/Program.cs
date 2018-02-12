@@ -33,8 +33,12 @@ namespace MidtermProject
     {
         static void Main(string[] args)
         {
-            MainMenu.showMenu();
-            Console.WriteLine("Adam is the best");
+
+            Factory.ReadInventory();
+            MainMenu menu = new MainMenu();
+
+            menu.showMenu();
+            Console.WriteLine("David is the best");
         }
     }
 }

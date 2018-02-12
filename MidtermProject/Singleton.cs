@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace MidtermProject
 {
-    //interface for making payments via cash, card, or check
-    interface IPayment
+    static class Singleton
     {
-         bool MakePayment(double grandTotal);
+
+        public static double salesTax = 0.06;
+
+        public static List<Product> Inventory = new List<Product>();
+
     }
 }
-

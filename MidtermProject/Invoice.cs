@@ -11,46 +11,53 @@ namespace MidtermProject
     class Invoice
     {
         double SaleTax = 0.06;
-        List<ProductOrdered> Products;
         double SubTotal;
         double GrandTotal;
         double TotalTax;
         public bool Payed;
 
-        public Invoice()
-        {
-            Products = new List<ProductOrdered>();
-            Payed = false;
-        }
+        public static List<Product> Cart = new List<Product>();
 
-        public bool GetStatus()
+        public double GetGrandTotal()
         {
-            return Payed;
+            return GrandTotal;
         }
 
         public void Calculate()
         {
             double sum = 0;
-            foreach (ProductOrdered p in Products)
+            foreach (Product p in Invoice.Cart)
             {
-                sum += p.GetPrice() * p.GetQuantity();
+                sum += p.GetPrice() * p.GetQty();
             }
-            SubTotal = sum;
+            this.SubTotal = sum;
+            
+            this.TotalTax = SubTotal * SaleTax;
 
-            TotalTax = SubTotal * SaleTax;
-
-            GrandTotal = SubTotal + TotalTax;
+            this.GrandTotal = SubTotal + TotalTax;
         }
         
-        public void ShowInvoice()
+        public void ShowCart()
         {
             Console.WriteLine("List of items");
-            foreach ( ProductOrdered p in Products)
+            foreach ( Product p in Cart)
             {
-                Console.Write("{0}{1}{2}{3}",p.GetName(),p.GetQuantity(), p.GetPrice(), p.GetPrice()*p.GetQuantity());
+                Console.Write("\nName: {0,-10} / Qty: {1,-5} / Price per: {2,-5:C2} / Line Total: {3,-5:C2}",p.GetName(),p.GetQty(), p.GetPrice(), p.GetPrice()*p.GetQty());
             }
-            Console.WriteLine("Subtotal:{0:C2} Tax:{1} Total:{2}",SubTotal, TotalTax, GrandTotal);
-            Console.WriteLine(GrandTotal);
+            Console.WriteLine("\nSubtotal: {0:C2} \nTax: {1:C2} \nGrand Total: {2:C2}",SubTotal, TotalTax, GrandTotal);
         }
+
+        public void printReceipt(string payType, double tendered, double change)
+        {
+            Console.WriteLine("*** STEAMY MIST*** \n");
+            ShowCart();         
+            Console.WriteLine("Tendered with: " + payType); 
+            Console.WriteLine("Amount tendered: {0:C2}", tendered);
+            Console.WriteLine("Change: " + "{0:C2}", change); 
+            Console.WriteLine();
+            Console.WriteLine("Thank you for shopping with STEAMY MIST");
+
+        }
+
     }
 }

@@ -20,8 +20,8 @@ namespace MidtermProject
         {
             {
                 string line;
-                string filepath = @"C:\Users\adamt\source\repos\midtermFileIO\midtermFileIO\InventoryList.txt";
-
+                //string filepath = @"C:\Users\adamt\source\repos\midtermFileIO\midtermFileIO\InventoryList.txt";
+                string filepath = @"C:\Users\aManHasNoName\Desktop\inventory.txt";
 
                 if (File.Exists(filepath))
                 {
@@ -33,10 +33,10 @@ namespace MidtermProject
                         //Console.WriteLine(game[0]);
                         Product v = new Product(game[0], game[1], game[2], double.Parse(game[3]));
 
-                        Singleton.Products.Add(v);
+                        Singleton.Inventory.Add(v);
                     }
                     file.Close();
-                    System.Console.WriteLine("We have {0} videogames to choose from.", Singleton.Products.Count);
+
                 }
                 else
                 {
