@@ -19,7 +19,9 @@ namespace MidtermProject
             Console.WriteLine("1: Order products");
             Console.WriteLine("2: View Cart");
             Console.WriteLine("3: Checkout");
+            Console.WriteLine("4: Add new Inventory");
             Console.WriteLine("9: Exit Store");
+
 
             Console.Write("\nWhat would you like to do: ");
             int resp =   GetInput();
@@ -34,6 +36,10 @@ namespace MidtermProject
                 case 3:
                     checkout();
                     break;
+                case 4:
+                    AddNewProduct();
+                    showMenu();
+                    break;
                 case 9:
                     Console.WriteLine("Thank you for shopping with us. Goodbye.");
                     Environment.Exit(0);
@@ -45,6 +51,19 @@ namespace MidtermProject
 
             }
         }
+        public void AddNewProduct()
+        {
+            Console.WriteLine("what is the name");
+            string name = Console.ReadLine();
+            Console.WriteLine("What is the category?");
+            string category = Console.ReadLine();
+            Console.WriteLine("What is the description?");
+            string descrption = Console.ReadLine();
+            Console.WriteLine("What is the price?");
+            double price = double.Parse(Console.ReadLine());
+            Factory.AddProduct(name, category, descrption, price);
+
+        }
 
         //prompt the user for input, then pass the input to validate to make sure its a valid integer choice.
         //then pass to an if statement or switch statement to handle the choice accordingly.
@@ -52,13 +71,14 @@ namespace MidtermProject
         {
             string input = Console.ReadLine();
             int valid = Validate(input);
+            
             return valid;
         }
 
         //move validate to another class? logic doesn't really belong in view...
         public int Validate(string input)
         {
-            if (int.TryParse(input, out int valid) != false)
+            if (int.TryParse(input, out int valid) != false  && valid < Singleton.Inventory.Count)
             {
                 return valid;
             }

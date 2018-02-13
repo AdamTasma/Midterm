@@ -15,6 +15,25 @@ namespace MidtermProject
             return new Invoice();
         }
 
+        public static bool AddProduct(string name, string category, string description, double price)
+        {
+            try
+            {
+                Product p = new Product(name, category, description, price);
+                Singleton.Inventory.Add(p);
+                StreamWriter w = File.AppendText(Singleton.filepath);// new StreamWriter(Singleton.filepath, true);
+
+                w.WriteLine(p.GetName() + ";" + p.GetCategory() + ";" + p.GetDescription() + ";" + p.GetPrice());
+                w.Close();
+                return true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Something went wrong");
+                return false;
+            }
+        }
+
         public static void ReadInventory()
         {
             {
@@ -22,11 +41,9 @@ namespace MidtermProject
 
                 try
                 {
-                    string filepath = @"C:\Users\adamt\source\repos\MidtermProject\Inventory.txt";
-
-                    if (File.Exists(filepath))
+                    if (File.Exists(Singleton.filepath))
                     {
-                        StreamReader file = new System.IO.StreamReader(filepath);
+                        StreamReader file = new System.IO.StreamReader(Singleton.filepath);
                         while ((line = file.ReadLine()) != null)
                         {
                             string[] info = line.Split(';');
