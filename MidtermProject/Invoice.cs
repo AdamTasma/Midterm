@@ -10,11 +10,9 @@ namespace MidtermProject
     //then the customer will have the option to continue shopping or check out and pay.
     class Invoice
     {
-        double SaleTax = 0.06;
         double SubTotal;
         double GrandTotal;
         double TotalTax;
-        public bool Payed;
 
         public static List<Product> Cart = new List<Product>();
 
@@ -30,10 +28,9 @@ namespace MidtermProject
             {
                 sum += p.GetPrice() * p.GetQty();
             }
-            this.SubTotal = sum;
-            
-            this.TotalTax = SubTotal * SaleTax;
 
+            this.SubTotal = sum;
+            this.TotalTax = SubTotal * Singleton.salesTax;
             this.GrandTotal = SubTotal + TotalTax;
         }
         
@@ -56,7 +53,6 @@ namespace MidtermProject
             Console.WriteLine("Change: " + "{0:C2}", change); 
             Console.WriteLine();
             Console.WriteLine("Thank you for shopping with STEAMY MIST");
-
         }
 
     }

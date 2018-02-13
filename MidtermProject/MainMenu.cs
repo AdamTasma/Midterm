@@ -88,14 +88,20 @@ namespace MidtermProject
             int qty = GetInput();
             Product product = Singleton.Inventory [input];
             product.SetQty(qty);
+            //waldo//
+            Console.WriteLine("your line total is {0:c2}", (product.GetPrice() * product.GetQty()));
 
             Invoice.Cart.Add(product);
 
-            Console.WriteLine("\n1: Continue shopping \n2: Back to main menu");
+            Console.WriteLine("\n1: Continue shopping \n2: Back to main menu \n3: checkout");
             int response = GetInput();
             if (response == 1)
             {
                 order();
+            }
+            else if(response == 3)
+            {
+                checkout();
             }
             else 
             {
@@ -181,7 +187,7 @@ namespace MidtermProject
             else if (response == 3)
             {
                 //receipt contains check number 
-                string checkNumber = payment.PayWithCheck();
+                double checkNumber = payment.PayWithCheck();
                 invoice.printReceipt(("Check #: " + checkNumber), invoice.GetGrandTotal(), 0.0 );
                 Console.ReadLine();
                 Invoice.Cart.Clear();

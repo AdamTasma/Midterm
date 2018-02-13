@@ -21,7 +21,7 @@ namespace MidtermProject
             return qty;
         }
 
-        public void SetQty(int qty)
+        public void SetQty(int qty) 
         {
             this.qty = qty;
         }
@@ -60,16 +60,13 @@ namespace MidtermProject
 
         public override string ToString()
         {
-
-            //string myString = this.GetName() + "\t" + this.GetCategory() + "\t" + this.GetDescription() + "\t" + this.GetFormattedPrice();
             string myString = String.Format("{0,-30} {1,-10:C2} {2,-15}{3,5}", Name, Price, Category, Description);
             return myString;
         }
 
         public string showCartProducts()
         {
-            return this.ToString() + "\t" +  this.GetQty();
-             
+            return this.ToString() + "\t" +  this.GetQty();            
         }
     }
 }

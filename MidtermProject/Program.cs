@@ -9,16 +9,10 @@ namespace MidtermProject
     //main
 
     /*
-     TODO:  -comments
-            -add line total after choosing qty
-            -input validation /try catch if needed
-            -****go over each piece so everyone knows everything //can use comments to help with program flow
-            -presentation stuff
-            -            -add file output for extended challenge??
-
-            
-            
-
+     TODO:  
+     input validation
+     add comments
+     extended challenge
      */
     class Program
     {
@@ -29,7 +23,7 @@ namespace MidtermProject
             MainMenu menu = new MainMenu();
 
             menu.showMenu();
-            Console.WriteLine("David is the best");
+            Console.WriteLine("burritos are the best");
         }
     }
 }

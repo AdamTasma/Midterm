@@ -13,38 +13,44 @@ namespace MidtermProject
         public Invoice CreateInvoice()
         {
             return new Invoice();
-
-
         }
+
         public static void ReadInventory()
         {
             {
                 string line;
-                //string filepath = @"C:\Users\adamt\source\repos\midtermFileIO\midtermFileIO\InventoryList.txt";
-                string filepath = @"C:\Users\aManHasNoName\Desktop\inventory.txt";
 
-                if (File.Exists(filepath))
+                try
                 {
-                    StreamReader file = new System.IO.StreamReader(filepath);
-                    while ((line = file.ReadLine()) != null)
+                    string filepath = @"C:\Users\adamt\source\repos\MidtermProject\Inventory.txt";
+
+                    if (File.Exists(filepath))
                     {
-                        //Console.WriteLine(line);
-                        string[] game = line.Split(';');
-                        //Console.WriteLine(game[0]);
-                        Product v = new Product(game[0], game[1], game[2], double.Parse(game[3]));
+                        StreamReader file = new System.IO.StreamReader(filepath);
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            string[] info = line.Split(';');
+                            Product v = new Product(info[0], info[1], info[2], double.Parse(info[3]));
 
-                        Singleton.Inventory.Add(v);
+                            Singleton.Inventory.Add(v);
+                        }
+                        file.Close();
                     }
-                    file.Close();
-
+                    else
+                    {
+                        Console.WriteLine("there is no file foo");
+                    }
                 }
-                else
+                catch(FileLoadException e)
                 {
-                    Console.WriteLine("there is no file");
+                    Console.WriteLine("unable to read the file");
                 }
 
-
+                catch (Exception e)
+                {
+                    Console.WriteLine("unable to read the file");
+                }
             }
         }
-        }
+    }
 }
